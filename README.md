@@ -1,6 +1,7 @@
 # auto-branch
 
-> A GitHub App built with [Probot](https://github.com/probot/probot) that Simple GitHub application to create desired branches and apply branch protection rules upon repository creatory.
+> A GitHub App built with [Probot](https://github.com/probot/probot).
+> Simple GitHub application to create desired branches and apply branch protection rules upon repository creatory.
 
 ## Setup
 
