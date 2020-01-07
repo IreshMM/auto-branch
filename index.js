@@ -5,6 +5,7 @@
 module.exports = app => {
 
   app.on('repository.created', async context => {
+    if(!(await branchExists(context, 'master'))) return;
     await createBranches(context);
     await updateBranchProtections(context);
   })
@@ -16,7 +17,7 @@ module.exports = app => {
   }
 
   async function protectBranch(context, branch) {
-    if(!branchExists(context, branch)) return;
+    if(!(await branchExists(context, branch))) return;
     const owner = await repoOwnerOf(context);
     const repo = await repoNameOf(context);
     const required_status_checks = null;
