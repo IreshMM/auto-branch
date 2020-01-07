@@ -15,6 +15,7 @@ module.exports = app => {
   }
 
   async function protectBranch(context, branch) {
+    if(!branchExists(context, branch)) return;
     const owner = await repoOwnerOf(context);
     const repo = await repoNameOf(context);
     const required_status_checks = null;
@@ -79,8 +80,7 @@ module.exports = app => {
       sha: masterSha
     };
 
-
-    context.github.git.createRef(params).then(console.log);
+    await context.github.git.createRef(params);
 
   }
 
