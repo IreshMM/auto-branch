@@ -10,6 +10,7 @@ module.exports = app => {
   })
 
   async function updateBranchProtections(context) {
+    await protectBranch(context, 'master');
     await protectBranch(context, 'dev_protected');
     await protectBranch(context, 'sit_protected');
   }
@@ -23,7 +24,12 @@ module.exports = app => {
     const required_pull_request_reviews = {
       required_approving_review_count: 1
     };
-    const restrictions = null;
+    const restrictions = {
+      teams: [],
+      users: [
+        "ireshmm"
+      ]
+    }
 
     const params = {
       owner,
