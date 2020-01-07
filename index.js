@@ -28,7 +28,8 @@ module.exports = app => {
     const restrictions = {
       teams: [],
       users: [
-        "ireshmm"
+        "SHNanayakkara",
+        "samithau"
       ]
     }
 
